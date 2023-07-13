@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://wallapp.victornwadinobi.com/api'//https://wall-id-56d331b99382.herokuapp.com/v1' 

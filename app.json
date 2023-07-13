@@ -1,0 +1,52 @@
+{
+  "expo": {
+    "name": "wall-id",
+    "slug": "wall-id",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0A0909"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.greenmouse.wallid"
+    },
+    "android": {
+      "minify": false,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0A0909"
+      },
+      "package": "com.greenmouse.wallid"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fba1fed7-fdb0-4b62-8a9a-9fab4a39c7ce"
+      }
+    },
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/fba1fed7-fdb0-4b62-8a9a-9fab4a39c7ce"
+    },
+    "plugins": [
+      [
+        "expo-barcode-scanner",
+        {
+          "cameraPermission": "Allow $(WALL ID) to access camera."
+        }
+      ]
+    ]
+  }
+}
