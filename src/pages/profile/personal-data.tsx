@@ -20,11 +20,14 @@ const validationSchema = Yup.object().shape({
 });
 
 export const PersonalData = ({ navigation }: any) => {
-  const {
-    user: {
-      userInfo: { name, phone, email },
-    },
-  } = useAppSelector(({ userReducer }) => userReducer);
+  const { user:{
+    email,
+    details:{
+    firstname,
+      lastname,
+      phone
+    }
+  }} = useAppSelector(({ userReducer }) => userReducer);
 
   const {
     handleSubmit,
@@ -36,8 +39,8 @@ export const PersonalData = ({ navigation }: any) => {
     setFieldValue,
   } = useFormik({
     initialValues: {
-      lastname: name.split("  ")[0],
-      firstname: name.split("  ")[1],
+      lastname,
+      firstname,
       email: email,
       phone: phone,
     },

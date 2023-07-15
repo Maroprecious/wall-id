@@ -5,6 +5,7 @@ import {
   ScrollView,
   StyleSheet,
   TouchableOpacity,
+  FlatList
 } from "react-native";
 import { AntDesign, Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { PageLayout } from "../../component/layout/page-layout";
@@ -14,38 +15,40 @@ import { colors } from "../../constants";
 import { SubscriptionInfo } from "../../members-info";
 import { Input } from "../../component";
 import { useTheme } from "../../context/theme";
+import { useAppThunkDispatch, useAppSelector } from "../../redux/store";
 
 export const SubscriptionTab = () => {
-  const {isDarkTheme} = useTheme()
+  const { isDarkTheme } = useTheme()
   const navigation = useNavigation<NavigationPropsHook>();
+  const dispatch = useAppThunkDispatch()
+  const { loading, userSubscriptions } = useAppSelector(({ userSubscriptionReducer }) => userSubscriptionReducer)
   return (
     <PageLayout w="full">
-      <ScrollView>
-        <View style={styles.container}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <AntDesign name="left" size={20} color={isDarkTheme ? colors.light.black : colors.light.white} />
-          </TouchableOpacity>
-          <Text style={styles.title} fontFamily="MontserratBold">
-            Subscriptions
-          </Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("AddSubscriptionTab")}
-          >
-            <View style={styles.addIcon}>
-              <Entypo name="plus" size={20} color={colors.light.white} />
-            </View>
-          </TouchableOpacity>
-        </View>
-        <Text style={styles.subtext} fontFamily="MontserratMedium">
-          All your subscription plans (4)
+      <View style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <AntDesign name="left" size={20} color={isDarkTheme ? colors.light.black : colors.light.white} />
+        </TouchableOpacity>
+        <Text style={styles.title} fontFamily="MontserratBold">
+          Subscriptions
         </Text>
-        <View>
-          <Input
-            style={{ width: "90%", alignSelf: "center", marginTop: 30 }}
-            placeholder="Search"
-          />
-        </View>
-        <View style={styles.cards}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate("AddSubscriptionTab")}
+        >
+          <View style={styles.addIcon}>
+            <Entypo name="plus" size={20} color={colors.light.white} />
+          </View>
+        </TouchableOpacity>
+      </View>
+      {/* <Text style={styles.subtext} fontFamily="MontserratMedium">
+          All your subscription plans (4)
+        </Text> */}
+      <View>
+        <Input
+          style={{ width: "90%", alignSelf: "center", marginTop: 30 }}
+          placeholder="Search"
+        />
+      </View>
+      {/* <View style={styles.cards}>
           {SubscriptionInfo.map((elem, id) => (
             <View key={id} style={styles.item}>
               <View style={styles.flex}>
@@ -85,8 +88,17 @@ export const SubscriptionTab = () => {
               </View>
             </View>
           ))}
-        </View>
-      </ScrollView>
+        </View> */}
+      <>
+        <FlatList
+          data={userSubscriptions}
+          renderItem={() => null}
+          ListEmptyComponent={() =>
+            <View style={styles.center}>
+              <Text style={styles.text} fontFamily='MontserratRegular'>Sorry No Active Subscriptions</Text>
+            </View>}
+        />
+      </>
     </PageLayout>
   );
 };
@@ -163,4 +175,12 @@ const styles = StyleSheet.create({
     padding: 20,
     gap: 10
   },
+  text: {
+    textAlign: 'center',
+    color: colors.light.white,
+    fontSize: 15
+},
+center: {
+    marginTop: '70%'
+}
 });

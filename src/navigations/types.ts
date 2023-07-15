@@ -83,3 +83,4 @@ export type IUserData = {
     bio: any;
     created_at: string;
 }
+

@@ -13,7 +13,7 @@ export const signIn = createAsyncThunk(
         url: `${BASE_URL}/auth/register`,
         method: "post",
         data: data,
-      });
+      }, false);
       Toast.show({
         type: 'success',
         text1: 'Success',
@@ -47,7 +47,7 @@ export const signUpOrganization = createAsyncThunk(
         url: `${BASE_URL}/auth/organization/register`,
         method: "post",
         data: data,
-      });
+      }, false);
       Toast.show({
         type: 'success',
         text1: 'Success',
@@ -119,7 +119,7 @@ export const resetPassword = createAsyncThunk(
         url: `${BASE_URL}/auth/password/email`,
         method: "post",
         data: data,
-      });
+      }, false);
       Toast.show({
         type: 'success',
         text1: 'Success',
@@ -153,7 +153,7 @@ export const updatePassword = createAsyncThunk(
         url: `${BASE_URL}/auth/password/reset`,
         method: "post",
         data: data,
-      });
+      }, false);
       Toast.show({
         type: 'success',
         text1: 'Success',

@@ -76,7 +76,7 @@ export const Profile = ({ navigation }: any) => {
           {
             name: "Help",
             icon: "help-circle",
-            page: "Help",
+            page: "GetHelp",
           },
           {
             name: "Logout",

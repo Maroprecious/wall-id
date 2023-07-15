@@ -24,15 +24,15 @@ export const ApprovedMembersScreen = () => {
             <View style={styles.members}>
                 {
                     ApprovedMembers.map((elem, id) => (
-                        <>
-                            <View key={id} style={styles.flex}>
+                        <View key={id}>
+                            <View style={styles.flex}>
                                 <View style={styles.image}>
                                     {elem.image}
                                 </View>
                                 <Text style={styles.name} fontFamily='MontserratMedium'>{elem.name}</Text>
                             </View>
                             <View></View>
-                        </>
+                        </View>
                     ))
                 }
             </View>

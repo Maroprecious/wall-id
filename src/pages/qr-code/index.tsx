@@ -69,7 +69,7 @@ export const QRCode_ = () => {
               </TouchableOpacity>
             </View>
             <Text style={style.name} fontFamily="MontserratBold">
-              {firstname} {lastname}
+               {lastname}
             </Text>
           </View>
           <EvilIcons name="bell" color={colors.light.text7} size={25} />

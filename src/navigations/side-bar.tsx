@@ -127,10 +127,10 @@ export default function SideBar() {
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    height: Dimensions.get("screen").height,
+    height: Dimensions.get("screen").height + 20,
     backgroundColor: colors.light.bg4,
-    paddingTop: 100,
-    marginTop: -50,
+    paddingTop: 80,
+    marginTop: -70,
   },
   line: {
     width: "100%",

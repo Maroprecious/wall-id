@@ -27,7 +27,7 @@ import { signUpOrganization } from "../../../redux/reducers/auth/thunkAction";
 const validationSchema = Yup.object().shape({
   company: Yup.string().required("Required"),
   phone: Yup.string().required("Phone number is required"),
-  access_type: Yup.string().required("Required"),
+  type: Yup.string().required("Required"),
   email: Yup.string().email().required("Email is required"),
   password: Yup.string()
     .min(6, ({ min }) => `Password must be at least ${min} characters`)
@@ -86,6 +86,7 @@ export const OrganizationSignUp = ({ navigation }: OrganizationScreenProp) => {
       });
     },
   });
+  console.log(errors)
   return (
     <AuthLayout
       title="Sign Up as Organization"

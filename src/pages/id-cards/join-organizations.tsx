@@ -5,16 +5,20 @@ import {
     ScrollView,
     StyleSheet,
     TouchableOpacity,
+    FlatList
 } from "react-native";
 import { AntDesign, Ionicons, FontAwesome, Entypo } from "@expo/vector-icons";
 import { PageLayout } from "../../component/layout/page-layout";
 import { NavigationPropsHook } from "../../navigations/types";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../../constants";
+import { useAppThunkDispatch, useAppSelector } from "../../redux/store";
 
 
 export const JoinOrganization = () => {
     const navigation = useNavigation<NavigationPropsHook>();
+    const dispatch = useAppThunkDispatch();
+    const { loading, joinedList } = useAppSelector(({ userOrganizationReducer }) => userOrganizationReducer)
     return (
         <PageLayout w="full">
             <View style={styles.container}>
@@ -34,9 +38,15 @@ export const JoinOrganization = () => {
                     Join New Organization
                 </Text>
             </View>
-            <View style={styles.center}>
-            <Text style={styles.text} fontFamily='MontserratRegular'>Sorry No Organizations</Text>
-            </View>
+            <FlatList
+                data={joinedList}
+                renderItem={() => null}
+                ListEmptyComponent={() =>
+                    <View style={styles.center}>
+                        <Text style={styles.text} fontFamily='MontserratRegular'>Sorry No Organizations</Text>
+                    </View>}
+            />
+
         </PageLayout>
     );
 };
@@ -60,18 +70,18 @@ const styles = StyleSheet.create({
         fontSize: 15,
         marginLeft: "3%",
     },
-    flex:{
+    flex: {
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: '5%',
         marginTop: 10
     },
-    text:{
+    text: {
         textAlign: 'center',
         color: colors.light.white,
         fontSize: 15
     },
-    center:{
+    center: {
         marginTop: '70%'
     }
 

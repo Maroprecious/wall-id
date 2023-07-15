@@ -22,10 +22,18 @@ import { SubscriptionInfo, addCard } from "../../members-info";
 import { Button, Icon, Input } from "../../component";
 import { DetailsImage } from "../../constants/images";
 import { RequestSentModal } from "../../component/modal/request-sent";
+import { useAppThunkDispatch, useAppSelector } from "../../redux/store";
 
-export const OrganizationDetails2 = () => {
+export const OrganizationDetails2 = ({route}: any) => {
   const navigation = useNavigation<NavigationPropsHook>();
   const [visible, setVisible] = useState(false);
+  const dispatch = useAppThunkDispatch()
+const {loading} = useAppSelector(({userOrganizationReducer}) => userOrganizationReducer )
+const [role, setRole] = useState(1)
+const data ={
+  name: 'greenmouse',
+  role: 1
+}
   return (
     <PageLayout w="full">
       <ScrollView>
@@ -34,7 +42,7 @@ export const OrganizationDetails2 = () => {
             <AntDesign name="left" size={20} color={colors.light.white} />
           </TouchableOpacity>
           <Text style={styles.title} fontFamily="MontserratBold">
-            Organisation Details
+            Organisation Details3
           </Text>
           <View style={{ width: 20 }} />
         </View>
@@ -43,7 +51,7 @@ export const OrganizationDetails2 = () => {
           {[
             {
               field: "Name",
-              value: "James Howells",
+              value: route.params?.name,
               icon: (
                 <Ionicons
                   name="newspaper-outline"
@@ -54,7 +62,7 @@ export const OrganizationDetails2 = () => {
             },
             {
               field: "Email",
-              value: "chukka@gmail.com",
+              value: route.params?.email,
               icon: (
                 <MaterialCommunityIcons
                   name="email-fast-outline"
@@ -65,14 +73,14 @@ export const OrganizationDetails2 = () => {
             },
             {
               field: "Username",
-              value: "Fraya Harris",
+              value: route.params?.username,
               icon: (
                 <Ionicons name="person" color={colors.light.text7} size={25} />
               ),
             },
             {
               field: "Registered Date",
-              value: "30 -11 -2022",
+              value: new Date(route.params?.reg_date).toLocaleDateString(),
               icon: (
                 <AntDesign
                   name="calendar"
@@ -83,7 +91,7 @@ export const OrganizationDetails2 = () => {
             },
             {
               field: "ID Card Number",
-              value: "TYUIOLNBF",
+              value: route.params?.id_card,
               icon: (
                 <AntDesign name="idcard" color={colors.light.text7} size={25} />
               ),

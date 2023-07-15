@@ -16,19 +16,22 @@ export const MembersInfo = [
         name: 'Declined Members',
         icon: <Ionicons name="md-close-sharp" size={30} color={colors.light.white} />,
         icon_color: '#95241D',
-        bg_color: colors.light.t8
+        bg_color: colors.light.t8,
+        page: 'Approved Members'
     },
     {
         name: 'Pending Members',
         icon: <MaterialCommunityIcons name="dots-horizontal-circle-outline" size={28} color={colors.light.white} />,
         icon_color: 'green',
         bg_color: colors.light.t10,
+        page: 'Approved Members'
     },
     {
         name: 'Deactivated Members',
         icon: <FontAwesome5 name="stop-circle" size={28} color={colors.light.white} />,
         icon_color: '#6F1C16',
-        bg_color: colors.light.t8
+        bg_color: colors.light.t8,
+        page: 'Approved Members'
     },
 
 ]

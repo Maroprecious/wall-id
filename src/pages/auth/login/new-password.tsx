@@ -105,7 +105,7 @@ export const NewPassword = ({ navigation, route }: ResetScreenProps) => {
               style={{ marginTop: 20 }}
               onPress={() => handleSubmit()}
             >
-              Send link
+              Send Code
             </Button>
           </View>
         </ScrollView>

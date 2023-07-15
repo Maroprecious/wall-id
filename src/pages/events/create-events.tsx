@@ -378,7 +378,7 @@ const styles = StyleSheet.create({
   },
   header_text: {
     fontSize: 14,
-    color: colors.light.text7,
+    color: colors.light.white,
     paddingBottom: 30,
   },
 });

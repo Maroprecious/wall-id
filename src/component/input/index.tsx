@@ -54,7 +54,7 @@ export const Input = ({
         onChangeText={onChange}
         onBlur={onBlur}
         placeholder={placeholder}
-        placeholderTextColor={colors.light.text4}
+        placeholderTextColor={colors.light.white}
         style={[styles.input, inputStyle, { paddingLeft: Icon ? 40 : 20 }]}
         {...otherProps}
       />
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 13,
-    color: colors.light.label,
+    color: colors.light.white,
     paddingBottom: 7,
   },
   err: {

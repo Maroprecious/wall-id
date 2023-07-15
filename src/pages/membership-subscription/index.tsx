@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     color: colors.light.white,
   },
   text: {
-    color: colors.light.text2,
+    color: colors.light.white,
     fontSize: 13,
     width: "90%",
   },

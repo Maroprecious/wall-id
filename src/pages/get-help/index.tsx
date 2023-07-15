@@ -10,7 +10,12 @@ import { useAppSelector } from "../../redux/store";
 
 export const GetHelp = () => {
   const navigation = useNavigation<NavigationPropsHook>();
-  const {user:{userInfo:{name}}} = useAppSelector(({userReducer})=> userReducer)
+  const {user:{
+    details: {
+      firstname,
+      lastname
+    }
+  }} = useAppSelector(({userReducer})=> userReducer)
   return (
     <PageLayout
       icon={
@@ -26,7 +31,7 @@ export const GetHelp = () => {
             size={27}
             color={colors.light.white}
           />
-          <Text style={styles.welcome} fontFamily='MontserratBold'>Hello, {name}</Text>
+          <Text style={styles.welcome} fontFamily='MontserratBold'>Hello, {lastname}</Text>
         </View>
         <View>
           <ServiceCard

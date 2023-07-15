@@ -138,14 +138,14 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 13,
-    color: colors.light.label,
+    color: colors.light.white,
     paddingBottom: 7,
   },
   placeholderStyle: {
     fontSize: 14,
     fontFamily: "MontserratRegular",
     paddingLeft: 20,
-    color: colors.light.text4,
+    color: colors.light.white,
   },
   selectedTextStyle: {
     fontSize: 14,
